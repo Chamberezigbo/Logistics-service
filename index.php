@@ -5,36 +5,39 @@
      <!-- Required meta tags -->
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <link rel="stylesheet" href="res/css/main.style.css?v=8">
-     <link rel="stylesheet" href="res/css/global.style.css?v=8">
+     <link rel="stylesheet" href="res/css/main.style.css">
+     <link rel="stylesheet" href="res/css/global.style.css">
 
      <!-- Bootstrap CSS -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="stylesheet" href="res/fontawesome-free-6.0.0-web/css/all.css">
 
-     <title>Hello, world!</title>
+     <title>Global ....</title>
 </head>
 
 <body>
      <div class="container-fluid ">
-          <nav class="navbar navbar-expand-lg navbar-dark fixed-top first-nav">
+          <nav class="navbar navbar-expand-lg navbar-light fixed-top first-nav">
                <div class="container-fluid">
                     <a class="navbar-brand" href="#">
-                         <img src="res/image//Screenshot_7.png" alt="" width="150" height="35">
+                         <img src="res/image/logistic-logo.png" alt="" width="70" height="35">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                         <ul class="navbar-nav">
+                         <ul class="navbar-nav ">
                               <li class="nav-item">
-                                   <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                   <a class="nav-link active" href="#home">Home</a>
                               </li>
                               <li class="nav-item">
-                                   <a class="nav-link" href="#">Features</a>
+                                   <a class="nav-link" href="#scrollspyHeading1">Contact Us</a>
                               </li>
                               <li class="nav-item">
-                                   <a class="nav-link" href="#">Pricing</a>
+                                   <a class="nav-link" href="#"><i class="fa-solid fa-circle-exclamation"></i> Alert(2)</a>
+                              </li>
+                              <li class="nav-item">
+                                   <a class="nav-link" href="#"><i class="fa-solid fa-globe"></i>USA</a>
                               </li>
                          </ul>
                     </div>
@@ -43,16 +46,18 @@
 
      </div>
 
-     <div class="tracking-sec">
-          <div class="container">
-               <div class="container mx-auto w-50 pt-5">
+     <div class="tracking-sec" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+          <div class="container" id="home">
+               <div class="container w-75 pt-5">
                     <div class="pt-5">
                          <h3 class="text-capitalize">track your shipment</h3>
                     </div>
-                    <div class="input-group mb-2 text-center  ">
-                         <input type="text" class="form-control" placeholder="Enter your tracking number(s)" aria-label="Recipient's username" aria-describedby="button-addon2">
-                         <button class="btn btn-danger" type="button" id="button-addon2">Button</button>
-                    </div>
+                    <form action="">
+                         <div class="input-group mb-2 text-center ">
+                              <input type="text" class="form-control" placeholder="Enter your tracking number(s)" aria-label="Recipient's username" aria-describedby="button-addon2">
+                              <button class="btn btn-danger" type="button" id="button-addon2">Button</button>
+                         </div>
+                    </form>
                     <div class="">
                          <p>DHL Express Reference Tracking></p>
                     </div>
@@ -220,7 +225,7 @@
                </div>
      </section>
 
-     <section>
+     <section data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
           <div class="container my-5">
                <div class="text-center mb-5">
                     <h2><strong>Logistics Solutions</strong></h2>
@@ -313,21 +318,62 @@
                     </div>
                </div>
 
-               <div class="container">
+               <div class="container" id="scrollspyHeading1">
                     <div class="row">
                          <div class="col-lg-3">
                               <div>
                                    <h5 class="text-danger"><strong>Help Center</strong></h5> <br>
-                                   <p class="card-text-hover"> Contact US</p>
-                                   <p class="card-text-hover">Customer Portal Logins </p>
-                                   <p class="card-text-hover">Digital Partners and Integration </p>
-                                   <p class="card-text-hover">Developers Portal </p>
+                                   <p class="card-text-hover fw-1"> Contact US</p>
+                                   <p class="card-text-hover fw-1">Customer Portal Logins </p>
+                                   <p class="card-text-hover fw-1">Digital Partners and Integration </p>
+                                   <p class="card-text-hover fw-1">Developers Portal </p>
+                              </div>
+                         </div>
+
+                         <div class="col-lg-3">
+                              <div>
+                                   <h5 class="text-danger"><strong>Our Divisions</strong></h5> <br>
+                                   <p class="card-text-hover fw-1">Post and Packet Deutschland</p>
+                                   <p class="card-text-hover fw-1">DHL Express</p>
+                                   <p class="card-text-hover fw-1">DHL Global Forwarding</p>
+                                   <p class="card-text-hover fw-1">DHL Freight</p>
+                                   <p class="card-text-hover fw-1">DHL Supply Chain</p>
+                                   <p class="card-text-hover fw-1">DHL eCommerce solution</p>
+                              </div>
+                         </div>
+
+                         <div class="col-lg-3">
+                              <div>
+                                   <h5 class="text-danger"><strong>Industry Sectors</strong></h5> <br>
+                                   <p class="card-text-hover fw-1"> Auto-Mobility</p>
+                                   <p class="card-text-hover fw-1">Chemical</p>
+                                   <p class="card-text-hover fw-1">Consumer</p>
+                                   <p class="card-text-hover fw-1">Engineering and Manufacturing</p>
+                                   <p class="card-text-hover fw-1">Life Science and Healthcare</p>
+                                   <p class="card-text-hover fw-1">Public Sector</p>
+                                   <p class="card-text-hover fw-1">Retails</p>
+                                   <p class="card-text-hover fw-1">Technology</p>
+                              </div>
+                         </div>
+
+                         <div class="col-lg-3">
+                              <div>
+                                   <h5 class="text-danger"><strong>Company Information</strong></h5> <br>
+                                   <p class="card-text-hover fw-1"> About DHL</p>
+                                   <p class="card-text-hover fw-1">Delivered</p>
+                                   <p class="card-text-hover fw-1">Consumer</p>
+                                   <p class="card-text-hover fw-1">Careers</p>
+                                   <p class="card-text-hover fw-1">Press Center</p>
+                                   <p class="card-text-hover fw-1">Suitability</p>
+                                   <p class="card-text-hover fw-1">Insight and Innovation</p>
+                                   <p class="card-text-hover fw-1">Officials Logistics Partners</p>
                               </div>
                          </div>
                     </div>
                </div>
           </div>
      </section>
+
 
 
 
