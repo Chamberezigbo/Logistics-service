@@ -7,10 +7,7 @@ body {
 }
 
 .first-nav {
-	background-image: linear-gradient(
-		rgba(255, 0, 0, 0),
-		rgba(255, 204, 0, 1.0)
-	);   
+	background-color: #FFCC00;  
 }
 .tracking-sec {
 	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
