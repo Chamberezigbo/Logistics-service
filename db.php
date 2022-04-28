@@ -6,9 +6,9 @@ $dbPass = "";
 $dbName = "logistics";
 
 // $dbHost = "localhost";
-// $dbUser = "airships_user1";
-// $dbPass = "nmesoma5050";
-// $dbName = "meshipst_online_banking";
+// $dbUser = "webshipp_package";
+// $dbPass = "t7KdTG7@8xs7ABb";
+// $dbName = "webshipp_logistics	";
 
 
 $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
