@@ -26,4 +26,7 @@
 .nav-link:hover {
      color: red !important;
 }
+.tracking-nav {
+     background-color: #F2F2F2;
+}
 

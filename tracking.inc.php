@@ -24,13 +24,23 @@ if (isset($_POST['track'])) {
                $_SESSION['expire'] = $_SESSION['start'] + (40 * 60);
                $_SESSION['error'] = 0;
                $_SESSION['sessionId'] = $row['id'];
-               $_SESSION['name'] = $row['name'];
+               $_SESSION['senderName'] = $row['senders_name'];
+               $_SESSION['clientName'] = $row['receivers_name'];
+               $_SESSION['departureLocation'] = $row['departure_location'];
                $_SESSION['address'] = $row['address'];
                $_SESSION['phone'] = $row['phone'];
-               $_SESSION['country'] = $row['country'];
-               $_SESSION['email'] = $row['email'];
-               $_SESSION['location'] = $row['location'];
+               $_SESSION['departureCountry'] = $row['departure_country'];
+               $_SESSION['receiversEmail'] = $row['recivers_email'];
+               $_SESSION['arrivalLocation'] = $row['arrival_location'];
                $_SESSION['status'] = $row['status'];
+               $_SESSION['arrivalCountry'] = $row['arrival_country'];
+               $_SESSION['senderEmail'] = $row['sender_email'];
+               $_SESSION['packageW'] = $row['package_weight'];
+               $_SESSION['departureDate'] = $row['departure_date'];
+               $_SESSION['departureD'] = $row['departure_day'];
+               $_SESSION['departureT'] = $row['departure_time'];
+               $_SESSION['arrivalDate'] = $row['arriva_date'];
+               $_SESSION['arrivalD'] = $row['arriva_day'];
                $_SESSION['trackingId'] = $row['tracking_id'];
 
                header("Location:tracking.php");
@@ -42,5 +52,5 @@ if (isset($_POST['track'])) {
           }
      }
 }
-
+// ! looking at handleing database request //
 // finch up and the tracking 

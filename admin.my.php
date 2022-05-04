@@ -73,12 +73,15 @@
      <div class="container mt-5 pt-3">
           <form action="register.pro.inc.php" method="post">
                <div class="mb-3">
+                    <h1 class="text-center">Receiver Information</h1>
+               </div>
+               <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Client Name</label>
                     <input type="text" class="form-control" name="clientName" id="exampleFormControlInput1" required>
                </div>
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="exampleFormControlTextarea1" name="address" required></input>
+                    <input type="text" class="form-control" id="exampleFormControlTextarea1" name="clientAddress" required></input>
                </div>
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Phone Number</label>
@@ -86,19 +89,52 @@
                </div>
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Country</label>
-                    <input class="form-control" type="text" name="country" id="exampleFormControlTextarea1" required></input>
+                    <input class="form-control" type="text" name="clientCountry" id="exampleFormControlTextarea1" required></input>
                </div>
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Email Address</label>
-                    <input class="form-control" type="email" name="email" id="exampleFormControlTextarea1" required placeholder="name@example.com"></input>
+                    <input class="form-control" type="email" name="clientEmail" id="exampleFormControlTextarea1" required placeholder="name@example.com"></input>
                </div>
                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Current Location</label>
-                    <input class="form-control" type="text" name="location" id="exampleFormControlTextarea1" required></input>
+                    <label for="exampleFormControlTextarea1" class="form-label">Arrival Location</label>
+                    <input class="form-control" type="text" name="clientLocation" id="exampleFormControlTextarea1" required></input>
+               </div>
+
+               <!-- Senders Info -->
+               <div class="mb-3">
+                    <h1 class="text-center">Senders Information</h1>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Senders Name</label>
+                    <input type="text" class="form-control" name="senderName" id="exampleFormControlInput1" required>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Senders Email</label>
+                    <input class="form-control" type="email" name="senderEmail" id="exampleFormControlTextarea1" required placeholder="name@example.com"></input>
                </div>
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Status</label>
                     <input class="form-control" type="text" name="stat" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Senders Country</label>
+                    <input class="form-control" type="text" name="senderCountry" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Senders Location</label>
+                    <input class="form-control" type="text" name="senderLocation" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Arrival Date This Formate (Y-m-d) </label>
+                    <input class="form-control" type="text" name="arrivalDate" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Arrival Day Full Day</label>
+                    <input class="form-control" type="text" name="arrivalDay" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Package Wight</label>
+                    <input class="form-control" type="text" name="packageWight" id="exampleFormControlTextarea1" required></input>
                </div>
                <div class="text-center">
                     <button class="btn btn-danger" type="submit" name="RegisterPro">Submit</button>

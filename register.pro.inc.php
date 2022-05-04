@@ -4,21 +4,77 @@ require_once("db.php");
 
 if (isset($_POST['RegisterPro'])) {
      $clientName = $_POST['clientName'];
-     $address = $_POST['address'];
+     $clientAddress = $_POST['clientAddress'];
      $phone = $_POST['phone'];
-     $country = $_POST['country'];
-     $email = $_POST['email'];
-     $location = $_POST['location'];
+     $clientCountry = $_POST['clientCountry'];
+     $clientEmail = $_POST['clientEmail'];
+     $clientLocation = $_POST['clientLocation'];
+
+     // senders details //
+     $senderName = $_POST['senderName'];
+     $senderEmail = $_POST['senderEmail'];
+     $senderCountry = $_POST['senderCountry'];
+     $senderLocation = $_POST['senderLocation'];
+     $arrivalDate = $_POST['arrivalDate'];
+     $arrivalDay = $_POST['arrivalDay'];
+     $packageWight = $_POST['packageWight'];
      $status = $_POST['stat'];
 
-     $sql = " INSERT INTO packages (name, address, phone, country, email, location, status, tracking_id) VALUES (?,?,?,?,?,?,?,?)";
+
+
+     $sql = " INSERT INTO packages (
+          senders_name, 
+          receivers_name, 
+          address, 
+          phone, 
+          departure_country, 
+          arrival_country, 
+          sender_email, 
+          recivers_email,
+          departure_location, 
+          arrival_location, 
+          package_weight ,
+          status,
+          tracking_id,
+          departure_date,
+          departure_day,
+          departure_time,
+          arriva_date,
+          arriva_day
+          ) VALUES (
+               ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
+     )";
      $stmt = mysqli_stmt_init($conn);
      if (!mysqli_stmt_prepare($stmt, $sql)) {
           header("Location:register.php?error=sqlerror");
           exit();
      } else {
           $trackingId = strtoupper(substr(sha1(mt_rand()), 17, 10));
-          mysqli_stmt_bind_param($stmt, "ssssssss", $clientName, $address, $phone, $country, $email, $location, $status, $trackingId);
+          $departureDate = date("Y-m-d");
+          $departureDay = date("l");
+          $departureTime = date("h:i:sa");
+          mysqli_stmt_bind_param(
+               $stmt,
+               "ssssssssssssssssss",
+               $clientName,
+               $senderName,
+               $clientAddress,
+               $phone,
+               $senderCountry,
+               $clientCountry,
+               $senderEmail,
+               $clientEmail,
+               $senderLocation,
+               $clientLocation,
+               $packageWight,
+               $status,
+               $trackingId,
+               $departureDate,
+               $departureDay,
+               $departureTime,
+               $arrivalDate,
+               $arrivalDay
+          );
           mysqli_stmt_execute($stmt);
           session_start();
           $_SESSION['success'] = 1;
