@@ -3,7 +3,7 @@
           <div class="container pt-4">
                <div class="row">
                     <div class="col-lg-8">
-                         <h6><strong>Deutsche Post DHL Group</strong></h6>
+                         <h6><strong>Deutsche Post shipping Group</strong></h6>
                          <div class="row">
                               <div class="col-lg-3 col-6">
                                    <p class="fw-1 card-text-hover">Fraud Awareness</p>

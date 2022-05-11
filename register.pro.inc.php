@@ -19,6 +19,7 @@ if (isset($_POST['RegisterPro'])) {
      $arrivalDay = $_POST['arrivalDay'];
      $packageWight = $_POST['packageWight'];
      $status = $_POST['stat'];
+     $currentLocation = $_POST['currentLocation'];
 
 
 
@@ -40,9 +41,10 @@ if (isset($_POST['RegisterPro'])) {
           departure_day,
           departure_time,
           arriva_date,
-          arriva_day
+          arriva_day,
+          current_location
           ) VALUES (
-               ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
+               ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
      )";
      $stmt = mysqli_stmt_init($conn);
      if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -55,7 +57,7 @@ if (isset($_POST['RegisterPro'])) {
           $departureTime = date("h:i:sa");
           mysqli_stmt_bind_param(
                $stmt,
-               "ssssssssssssssssss",
+               "sssssssssssssssssss",
                $clientName,
                $senderName,
                $clientAddress,
@@ -73,7 +75,8 @@ if (isset($_POST['RegisterPro'])) {
                $departureDay,
                $departureTime,
                $arrivalDate,
-               $arrivalDay
+               $arrivalDay,
+               $currentLocation
           );
           mysqli_stmt_execute($stmt);
           session_start();

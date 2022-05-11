@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();
+if (!$_SESSION['auth']) {
+     header('location:main-admin.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,13 +31,7 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                          <ul class="navbar-nav">
                               <li class="nav-item">
-                                   <a class="nav-link active" type="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                   <a class="nav-link" href="#">Features</a>
-                              </li>
-                              <li class="nav-item">
-                                   <a class="nav-link" href="#">Pricing</a>
+                                   <a class="nav-link active" type="button" href="admin-control.php">View All Product</a>
                               </li>
                          </ul>
                     </div>
@@ -123,6 +121,10 @@
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Senders Location</label>
                     <input class="form-control" type="text" name="senderLocation" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Current Location</label>
+                    <input class="form-control" type="text" name="currentLocation" id="exampleFormControlTextarea1" required></input>
                </div>
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Arrival Date This Formate (Y-m-d) </label>
