@@ -103,7 +103,7 @@ if (!$_SESSION['auth']) {
                                         </tr>
                                         <tr>
                                              <td scope="row">Current Location Detail</td>
-                                             <td>In Progress</td>
+                                             <td><?= $_SESSION['currentLocation'] ?></td>
                                              <td></td>
                                              <td><?= date("l") ?></td>
                                              <td><?= date("Y-m-d") ?></td>
