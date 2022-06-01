@@ -23,8 +23,8 @@
                     <a class="navbar-brand" href="#">
                          <img src="res/image/logistic-logo.png" alt="" width="70" height="35">
                     </a>
-                    <a class="navbar-brand mt-2" href="#">
-                         <h4>shipping saints</h4>
+                    <a class="navbar-brand mt-2 text-capitalize" href="#">
+                         <h4>shipping Saints</h4>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
                                    <a class="nav-link" href="#scrollspyHeading1">Contact Us</a>
                               </li>
                               <li class="nav-item">
-                                   <a class="nav-link" href="#"><i class="fa-solid fa-circle-exclamation"></i> Alert(2)</a>
+                                   <a class="nav-link" href="about.php"> About</a>
                               </li>
                               <li class="nav-item">
                                    <a class="nav-link" href="#"><i class="fa-solid fa-globe"></i>USA</a>
