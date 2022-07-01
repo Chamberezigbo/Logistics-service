@@ -58,8 +58,8 @@ if (isset($_POST['RegisterPro'])) {
           mysqli_stmt_bind_param(
                $stmt,
                "sssssssssssssssssss",
-               $clientName,
                $senderName,
+               $clientName,
                $clientAddress,
                $phone,
                $senderCountry,
