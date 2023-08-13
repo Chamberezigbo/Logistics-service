@@ -1,16 +1,16 @@
 <?php
-
+session_start();
 if (isset($_POST['track'])) {
      require 'db.php';
      $trackingId = trim(strtoupper($_POST['trackingId']));
+
 
      $sql = "SELECT * FROM packages WHERE tracking_id = ?";
      $stmt = mysqli_stmt_init($conn);
 
      if (!mysqli_stmt_prepare($stmt, $sql)) {
-          session_start();
-          $_SESSION['error'] = 1;
-          $_SESSION['errorMassage'] = "Tracking ID Not Found";
+          $_SESSION['success'] = false;
+          $_SESSION['msg'] = "Error: Unable to connect to database";
           header("Location:index.php");
           exit();
      } else {
@@ -18,11 +18,10 @@ if (isset($_POST['track'])) {
           mysqli_stmt_execute($stmt);
           $result = mysqli_stmt_get_result($stmt);
           if ($row = mysqli_fetch_assoc($result)) {
-               session_start();
                $_SESSION['auth'] = true;
                $_SESSION['start'] = time();
                $_SESSION['expire'] = $_SESSION['start'] + (40 * 60);
-               $_SESSION['error'] = 0;
+               $_SESSION['success'] = false;
                $_SESSION['sessionId'] = $row['id'];
                $_SESSION['senderName'] = $row['senders_name'];
                $_SESSION['clientName'] = $row['receivers_name'];
@@ -42,15 +41,15 @@ if (isset($_POST['track'])) {
                $_SESSION['arrivalDate'] = $row['arriva_date'];
                $_SESSION['arrivalD'] = $row['arriva_day'];
                $_SESSION['trackingId'] = $row['tracking_id'];
+               $_SESSION['currentLocation'] = $row['current_location'];
 
                header("Location:tracking.php");
+               exit();
           } else {
-               session_start();
-               $_SESSION['error'] = 1;
-               $_SESSION['errorMassage'] = " Tracking ID Not Found";
+               $_SESSION['success'] = false;
+               $_SESSION['msg'] = "Tracking ID Not Found";
                header("Location:index.php");
+               exit();
           }
      }
 }
-// ! looking at handleing database request //
-// finch up and the tracking 

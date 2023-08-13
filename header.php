@@ -12,6 +12,7 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
      <link rel="stylesheet" href="res/fontawesome-free-6.0.0-web/css/all.css">
      <link rel="shortcut icon" href="favicon.ico" />
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqhmdN7U9cLCvALzm7jd6o9LT8fa-SFqE&libraries=geometry,places"></script>
 
      <title>Global ....</title>
 </head>
@@ -44,6 +45,9 @@
                                    <a class="nav-link" href="#"><i class="fa-solid fa-globe"></i>USA</a>
                               </li>
                          </ul>
+                         <span class="navbar-text">
+                              <a href="#" class="" id="google_translate_element"></a>
+                         </span>
                     </div>
                </div>
           </nav>

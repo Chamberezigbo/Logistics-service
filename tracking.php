@@ -1,5 +1,4 @@
 <?php
-error_reporting(0);
 session_start();
 
 if (!$_SESSION['auth']) {
@@ -32,23 +31,7 @@ if (!$_SESSION['auth']) {
           </div>
           <div class="">
                <div class="mapouter pt-2 mb-5">
-                    <div class="gmap_canvas"><iframe width="1500" height="325" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com/divi-discount/">divi discount</a><br>
-                         <style>
-                              .mapouter {
-                                   position: relative;
-                                   height: 325px;
-                                   width: 100%;
-                              }
-                         </style><a href="https://www.embedgooglemap.net">google maps on my web site</a>
-                         <style>
-                              .gmap_canvas {
-                                   overflow: hidden;
-                                   background: none !important;
-                                   height: 325px;
-                                   width: 100%;
-                              }
-                         </style>
-                    </div>
+                    <div id="map" style="height: 400px;"></div>
                </div>
           </div>
 
@@ -58,7 +41,7 @@ if (!$_SESSION['auth']) {
                          <div class="">
                               <h4>Track Your Cargo: <span><?= $_SESSION['trackingId'] ?></span></h4>
                               <p class="fs-6">
-                                   (<?= $_SESSION['address'] ?>, <?= $_SESSION['location'] ?>, <?= $_SESSION['country'] ?>)
+                                   (<?= $_SESSION['address'] ?>, <?= $_SESSION['arrivalLocation'] ?>, <?= $_SESSION['arrivalCountry'] ?>)
                               </p>
                          </div>
                          <div class=" mt-5">
@@ -171,6 +154,109 @@ if (!$_SESSION['auth']) {
      }
 }
 ?>
+
+<script>
+     function initMap() {
+          // Create a map object.
+          var map = new google.maps.Map(document.getElementById('map'), {
+               center: {
+                    lat: 37.4419,
+                    lng: -122.1419
+               },
+               zoom: 5
+          });
+
+          // Define the geocoder and directions service.
+          var geocoder = new google.maps.Geocoder();
+          var directionsService = new google.maps.DirectionsService();
+          var directionsRenderer = new google.maps.DirectionsRenderer({
+               map: map
+          });
+
+          // Prompt the user for two locations.
+          var originInput = '<?= $_SESSION['currentLocation'] ?>';
+          var destinationInput = '<?= $_SESSION['arrivalCountry'] ?>';
+
+          // Geocode the origin location.
+          geocoder.geocode({
+               address: originInput
+          }, function(originResults, originStatus) {
+               // Check the status of the geocode request.
+               if (originStatus === google.maps.GeocoderStatus.OK) {
+                    // Get the first result.
+                    var originResult = originResults[0];
+
+                    // Geocode the destination location.
+                    geocoder.geocode({
+                         address: destinationInput
+                    }, function(destinationResults, destinationStatus) {
+                         // Check the status of the geocode request.
+                         if (destinationStatus === google.maps.GeocoderStatus.OK) {
+                              // Get the first result.
+                              var destinationResult = destinationResults[0];
+
+                              // Set the map's center to the origin's location.
+                              map.setCenter(originResult.geometry.location);
+
+                              // Add markers for origin and destination.
+                              var originMarker = new google.maps.Marker({
+                                   position: originResult.geometry.location,
+                                   map: map,
+                                   label: 'Origin'
+                              });
+                              var destinationMarker = new google.maps.Marker({
+                                   position: destinationResult.geometry.location,
+                                   map: map,
+                                   label: 'Destination'
+                              });
+
+                              // Calculate and display the route between the origin and destination.
+                              calculateAndDisplayRoute(directionsService, directionsRenderer, originResult.geometry.location, destinationResult.geometry.location);
+
+                              // Draw a tracking line between the origin and destination.
+                              drawTrackingLine(map, originResult.geometry.location, destinationResult.geometry.location);
+                         } else {
+                              console.log("Destination geocode failed: " + destinationStatus);
+                         }
+                    });
+               } else {
+                    console.log("Origin geocode failed: " + originStatus);
+               }
+          });
+
+          // Function to calculate and display the route between two locations.
+          function calculateAndDisplayRoute(directionsService, directionsRenderer, origin, destination) {
+               directionsService.route({
+                    origin: origin,
+                    destination: destination,
+                    travelMode: google.maps.TravelMode.DRIVING
+               }, function(response, status) {
+                    if (status === google.maps.DirectionsStatus.OK) {
+                         directionsRenderer.setDirections(response);
+                    } else {
+                         console.log("Directions request failed: " + status);
+                    }
+               });
+          }
+
+          // Function to draw a tracking line between two locations.
+          function drawTrackingLine(map, origin, destination) {
+               var trackingLine = new google.maps.Polyline({
+                    path: [origin, destination],
+                    geodesic: true,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+               });
+
+               trackingLine.setMap(map);
+          }
+     }
+
+     // Call the initMap function when the API is loaded.
+     google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+
 
 
 <?php require_once 'footer.php' ?>
