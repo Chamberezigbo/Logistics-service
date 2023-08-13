@@ -20,6 +20,8 @@ if (isset($_POST['RegisterPro'])) {
      $packageWight = $_POST['packageWight'];
      $status = $_POST['stat'];
      $currentLocation = $_POST['currentLocation'];
+     $totalAmount = $_POST['amount'];
+     $paymentMethod = $_POST['paymentMethod'];
 
 
 
@@ -42,9 +44,11 @@ if (isset($_POST['RegisterPro'])) {
           departure_time,
           arriva_date,
           arriva_day,
-          current_location
+          current_location,
+          total_amount,
+          payment_mode
           ) VALUES (
-               ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
+               ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
      )";
      $stmt = mysqli_stmt_init($conn);
      if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -57,7 +61,7 @@ if (isset($_POST['RegisterPro'])) {
           $departureTime = date("h:i:sa");
           mysqli_stmt_bind_param(
                $stmt,
-               "sssssssssssssssssss",
+               "sssssssssssssssssssss",
                $senderName,
                $clientName,
                $clientAddress,
@@ -76,12 +80,15 @@ if (isset($_POST['RegisterPro'])) {
                $departureTime,
                $arrivalDate,
                $arrivalDay,
-               $currentLocation
+               $currentLocation,
+               $totalAmount,
+               $paymentMethod
           );
           mysqli_stmt_execute($stmt);
           session_start();
           $_SESSION['success'] = 1;
           $_SESSION['message'] = "your package has been registered successfully and your tracking ID is " . $trackingId;
-          header('Location:admin.my.php');
+          header('Location:admin-control.php');
+          exit();
      }
 }

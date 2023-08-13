@@ -15,15 +15,15 @@ if (!$_SESSION['auth']) {
      <link rel="stylesheet" href="res/css/main.style.css">
      <link rel="stylesheet" href="res/css/global.style.css">
 
-     <title>Global ....</title>
+     <title>Delivery company</title>
 </head>
 
 <body>
      <div class="container-fluid my-5">
           <nav class="navbar navbar-expand-lg navbar-dark fixed-top first-nav">
                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                         <img src="res/image/logistic-logo.png" alt="" width="70" height="35">
+                    <a class="navbar-brand" href="admin-control.php">
+                         <img src="images/images.jpeg" alt="" width=" 70" height="35">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"></span>
@@ -137,6 +137,14 @@ if (!$_SESSION['auth']) {
                <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Package Wight</label>
                     <input class="form-control" type="text" name="packageWight" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Total Amount</label>
+                    <input class="form-control" type="text" name="amount" id="exampleFormControlTextarea1" required></input>
+               </div>
+               <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Payment Method</label>
+                    <input class="form-control" type="text" name="paymentMethod" id="exampleFormControlTextarea1" required></input>
                </div>
                <div class="text-center">
                     <button class="btn btn-danger" type="submit" name="RegisterPro">Submit</button>
